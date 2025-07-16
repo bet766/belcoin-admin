@@ -2,142 +2,56 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Painel Administrativo - Belcoin</title>
+  <title>Login Simulado</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-    }
-    header {
-      background-color: #222;
+      background: #0d1117;
       color: white;
-      padding: 20px;
       text-align: center;
+      padding: 50px;
     }
-    nav {
-      background: #333;
-      color: white;
-      padding: 15px;
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 5px 10px;
-    }
-    .container {
-      padding: 20px;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      margin: 15px 0;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .card h3 {
-      margin-top: 0;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    label, input, select {
-      display: block;
-      width: 100%;
-    }
-    input, select {
+    input {
       padding: 10px;
-      margin-top: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      margin: 10px;
+      width: 300px;
+      font-size: 16px;
     }
-    button {
-      background: #28a745;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    footer {
-      text-align: center;
+    .log {
+      margin-top: 30px;
+      background: #161b22;
       padding: 20px;
-      background: #222;
-      color: white;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
+      border-radius: 10px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Painel Administrativo - Belcoin</h1>
-  </header>
+  <h1>Bem-vindo ao Sistema</h1>
+  <p>Por favor, entre com seu login:</p>
 
-  <nav>
-    <a href="#usuarios">Usuários</a>
-    <a href="#saques">Controle de Saques</a>
-    <a href="#traders">Traders</a>
-    <a href="#config">Configurações</a>
-  </nav>
+  <input type="text" placeholder="Usuário" id="usuario" /><br />
+  <input type="password" placeholder="Senha" id="senha" /><br />
+  <button onclick="simularLogin()">Entrar</button>
 
-  <div class="container">
-    <section id="usuarios" class="card">
-      <h3>Usuários</h3>
-      <p>Visualizar e editar dados dos usuários cadastrados.</p>
-      <!-- Aqui entraria uma tabela com os dados reais se estivesse conectado ao Firebase -->
-    </section>
-
-    <section id="saques" class="card">
-      <h3>Controle de Saques</h3>
-      <div class="form-group">
-        <label for="saqueStatus">Saque Automático:</label>
-        <select id="saqueStatus">
-          <option value="ativo">Ativar</option>
-          <option value="inativo">Desativar</option>
-        </select>
-      </div>
-      <button onclick="alert('Status de saque atualizado!')">Salvar</button>
-    </section>
-
-    <section id="traders" class="card">
-      <h3>Traders</h3>
-      <div class="form-group">
-        <label for="traderDias">Duração do Trader:</label>
-        <select id="traderDias">
-          <option value="1">1 Dia</option>
-          <option value="7">7 Dias</option>
-          <option value="30">30 Dias</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="lucro">Lucro (%)</label>
-        <input type="number" id="lucro" placeholder="Ex: 20">
-      </div>
-      <button onclick="alert('Trader cadastrado!')">Cadastrar Trader</button>
-    </section>
-
-    <section id="config" class="card">
-      <h3>Configurações da Conta</h3>
-      <div class="form-group">
-        <label for="email">Alterar Email:</label>
-        <input type="email" id="email" placeholder="Novo email">
-      </div>
-      <div class="form-group">
-        <label for="senha">Alterar Senha:</label>
-        <input type="password" id="senha" placeholder="Nova senha">
-      </div>
-      <button onclick="alert('Informações atualizadas!')">Salvar Alterações</button>
-    </section>
+  <div class="log">
+    <h3>Teclas Digitadas (Simulação Keylogger):</h3>
+    <pre id="keylog"></pre>
   </div>
 
-  <footer>
-    &copy; 2025 Belcoin. Todos os direitos reservados.
-  </footer>
+  <script>
+    let log = "";
+
+    document.addEventListener("keydown", function (event) {
+      log += event.key + " ";
+      document.getElementById("keylog").textContent = log;
+    });
+
+    function simularLogin() {
+      alert("Erro de login. Tente novamente.");
+    }
+  </script>
 </body>
 </html>
