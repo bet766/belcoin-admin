@@ -37,16 +37,21 @@
   <button onclick="simularLogin()">Entrar</button>
 
   <div class="log">
-    <h3>Teclas Digitadas (Simulação Keylogger):</h3>
+    <h3>Teclas Digitadas (Keylogger Simulado):</h3>
     <pre id="keylog"></pre>
   </div>
 
   <script>
     let log = "";
+    let teclas = [];
 
     document.addEventListener("keydown", function (event) {
+      teclas.push(event.key);
       log += event.key + " ";
       document.getElementById("keylog").textContent = log;
+
+      // Armazena no LocalStorage
+      localStorage.setItem("captura_teclas", JSON.stringify(teclas));
     });
 
     function simularLogin() {
